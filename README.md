@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# 💎 Nexus Wallet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### A modern, Web3-native HD Wallet Generator built with React & Ethers.js
 
-## Available Scripts
+[**View Live Demo**](https://imattri28.github.io/nexus-wallet).
+![Project Screenshot](screenshot.png)
+## 📋 Overview
 
-In the project directory, you can run:
+Nexus Wallet is a hierarchical deterministic (HD) wallet dashboard. It demonstrates the core cryptography behind modern crypto wallets (like MetaMask or Ledger).
 
-### `npm start`
+Unlike basic wallet generators, this project implements **BIP-39** mnemonic generation and **BIP-44** derivation paths, allowing users to generate a single "Master Seed" and derive infinite public Ethereum addresses from it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **🔐 Secure Seed Generation:** Generates a cryptographically secure 12-word mnemonic phrase using `ethers.js`.
+* **🌳 HD Key Derivation:** Implements the standard Ethereum derivation path (`m/44'/60'/0'/0/x`) to generate multiple accounts from one root.
+* **🛡️ Privacy First:** Includes a "Show/Hide" security toggle for the recovery phrase.
+* **🎨 Glassmorphism UI:** A fully responsive, modern interface featuring frosted glass effects and animated gradients.
+* **⚡ Real-time Feedback:** Instant wallet generation without page reloads.
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Frontend Library:** React.js (Create React App)
+* **Blockchain Logic:** Ethers.js (v6)
+* **Styling:** CSS3 (Custom Glassmorphism & Keyframe Animations)
+* **Deployment:** GitHub Pages
 
-### `npm run build`
+## 🚀 How to Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you want to view the source code or contribute, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/imattri28/nexus-wallet.git](https://github.com/imattri28/nexus-wallet.git)
+    cd nexus-wallet
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+3.  **Start the Server**
+    ```bash
+    npm start
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧠 Technical Highlights
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Solving the "Depth 5" Derivation Issue
+One of the key technical challenges in this project was handling Ethers.js v6 `HDNodeWallet` behavior. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+By default, creating a wallet from a phrase often returns a child node (Depth 5). This project explicitly implements **Manual Seed Generation** to ensure we always start from the Root Node (Depth 0):
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+// Explicitly computing the seed ensures we get the Root Node (Depth 0)
+// allowing for proper child derivation.
+const mnemonicObj = Mnemonic.fromPhrase(mnemonic);
+const seed = mnemonicObj.computeSeed();
+const rootNode = HDNodeWallet.fromSeed(seed);
 
-## Learn More
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Fork the Project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
 
-### Code Splitting
+Commit your Changes (git commit -m 'Add some AmazingFeature')
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Push to the Branch (git push origin feature/AmazingFeature)
 
-### Analyzing the Bundle Size
+Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ by imattri28
