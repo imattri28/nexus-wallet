@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/imattri28/nexus-wallet/static/css/main.ac431250.css",
-    "main.js": "/imattri28/nexus-wallet/static/js/main.ecc8181c.js",
-    "static/js/453.0a5e6038.chunk.js": "/imattri28/nexus-wallet/static/js/453.0a5e6038.chunk.js",
-    "index.html": "/imattri28/nexus-wallet/index.html",
-    "main.ac431250.css.map": "/imattri28/nexus-wallet/static/css/main.ac431250.css.map",
-    "main.ecc8181c.js.map": "/imattri28/nexus-wallet/static/js/main.ecc8181c.js.map",
-    "453.0a5e6038.chunk.js.map": "/imattri28/nexus-wallet/static/js/453.0a5e6038.chunk.js.map"
+    "main.css": "/nexus-wallet/static/css/main.ac431250.css",
+    "main.js": "/nexus-wallet/static/js/main.c3e52b11.js",
+    "static/js/453.0a5e6038.chunk.js": "/nexus-wallet/static/js/453.0a5e6038.chunk.js",
+    "index.html": "/nexus-wallet/index.html",
+    "main.ac431250.css.map": "/nexus-wallet/static/css/main.ac431250.css.map",
+    "main.c3e52b11.js.map": "/nexus-wallet/static/js/main.c3e52b11.js.map",
+    "453.0a5e6038.chunk.js.map": "/nexus-wallet/static/js/453.0a5e6038.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ac431250.css",
-    "static/js/main.ecc8181c.js"
+    "static/js/main.c3e52b11.js"
   ]
 }
